@@ -103,7 +103,7 @@ cargo doc --no-deps --workspace --open
 
 ## Notes
 
-czv is inspired by the command-line tools [xsv](https://github.com/BurntSushi/xsv) and [qsv](https://github.com/jqnatividad/qsv), but czv is not intended to cover all of their commands or features.
+czv is inspired by the command-line tools [xsv](https://github.com/BurntSushi/xsv) and [qsv](https://github.com/jqnatividad/qsv), but czv is not intended to cover all of their commands.
 
 Not all provided libraries may be in sync at a given time. See the [available operations table](#available-operations) for a common operation list between libraries (not all implementations for a given operation may be in sync either, for example they may not have the same builder/function arguments).
 
