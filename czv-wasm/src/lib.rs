@@ -24,7 +24,7 @@
 //! console.log(output);
 //! ```
 //!
-//! For a full website example see the example's source code here: https://www.npmjs.com/package/czv) <https://github.com/rzmk/czv/tree/main/czv-wasm/examples/basic-demo>
+//! For a full website example see the example's source code here: https://www.npmjs.com/package/czv) <https://github.com/rzmk/czv/tree/main/czv-wasm/examples/web-demo>
 //!
 //! # Links
 //!
