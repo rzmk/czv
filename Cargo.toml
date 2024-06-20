@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "czv",
+    "czv-wasm",
+    "czv-python"
+]
+resolver = "2"

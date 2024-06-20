@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html id="html" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pico.min.css" />
+    <title>czv demo</title>
+</head>
+
+<body style="padding:1rem">
+    <div style="display: flex; gap: 2rem; justify-content: space-between;">
+        <h1>czv playground</h1>
+        <button class="outline secondary" style="height: fit-content; padding: 0.25rem;" onclick="const html = document.getElementById('html');
+            if (html.getAttribute('data-theme') === 'light')
+                html.setAttribute('data-theme', 'dark')
+            else
+                html.setAttribute('data-theme', 'light')">Switch
+            page theme</button>
+    </div>
+    <p>Import a CSV file and get statistical data from running <a href="https://github.com/rzmk/czv">czv</a> in your
+        browser using WASM.</p>
+    <input type="file" id="upload" accept=".csv" class="hidden" />
+    <label for="upload" style="display: none;" id="progress">Loading...</label>
+    <table style="width: 100%;" class="striped">
+        <thead>
+            <tr>
+                <th style="width: 10rem">Output type</th>
+                <th>Output</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row count</td>
+                <td id="row-count"></td>
+            </tr>
+            <tr>
+                <td>Column count</td>
+                <td id="column-count"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="module">
+        const input = document.getElementById("upload")
+        const progress = document.getElementById("progress")
+
+        import init, * as czv from "../../pkg/czv.js";
+        // Must run `await init()` or `initSync()` first for web use
+        await init();
+
+        const fileReader = new FileReader()
+
+        fileReader.onloadstart = () => {
+            progress.style.display = "block";
+        }
+
+        fileReader.onloadend = () => {
+            document.getElementById("column-count").innerText = czv.columnCount(fileReader.result)
+            document.getElementById("row-count").innerText = czv.rowCount(fileReader.result)
+            progress.style.display = "none";
+        }
+
+        input.addEventListener("change", () => {
+            fileReader.readAsText(input.files[0])
+        })
+    </script>
+</body>
+
+</html>
