@@ -32,8 +32,10 @@ pub mod count;
 pub mod slice;
 
 #[allow(dead_code)]
-#[derive(Debug)]
-pub struct CzvError(anyhow::Error);
+// Error-handling helpers
+#[derive(thiserror::Error, Debug)]
+#[error("{0}")]
+pub struct CzvError(pub anyhow::Error);
 
 impl From<anyhow::Error> for CzvError {
     fn from(value: anyhow::Error) -> Self {

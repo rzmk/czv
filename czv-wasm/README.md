@@ -1,6 +1,9 @@
 # czv-wasm
 
-WebAssembly (JavaScript and TypeScript) library for [czv](https://github.com/rzmk/czv). czv is a library of utility functions for CSV-related data engineering and analysis tasks.
+WebAssembly (JavaScript and TypeScript) library for [czv](https://github.com/rzmk/czv). czv is a library of CSV-related operations for data engineering and analysis tasks.
+
+-   For a Rust library see [czv](https://github.com/rzmk/czv/tree/main/czv).
+-   For a Python library see [czv-python](https://github.com/rzmk/czv/tree/main/czv-python).
 
 ## Installation and example
 

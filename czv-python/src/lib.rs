@@ -1,9 +1,16 @@
+use ::czv::CzvError as OGError;
 use pyo3::prelude::*;
 
 // Error-handling helpers
 #[derive(thiserror::Error, Debug)]
 #[error("{0}")]
 pub struct CzvError(anyhow::Error);
+
+impl From<OGError> for CzvError {
+    fn from(value: OGError) -> Self {
+        value.into()
+    }
+}
 
 impl From<pyo3::PyErr> for CzvError {
     fn from(value: pyo3::PyErr) -> Self {

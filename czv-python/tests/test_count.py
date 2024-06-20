@@ -10,7 +10,7 @@ class TestCountFunc:
     def test_count(self, file_name, expected):
         """Count the total number of non-header rows."""
 
-        result = czv.row_count(test_data[file_name].read_text())
+        result = czv.row_count(file_path=test_data[file_name])
         assert result == expected
 
     @pytest.mark.parametrize(
@@ -20,5 +20,5 @@ class TestCountFunc:
     def test_include_header_row(self, file_name, expected):
         """Count the total number of rows including the header row."""
 
-        result = czv.row_count(test_data[file_name].read_text(), include_header_row=True)
+        result = czv.row_count(file_path=test_data[file_name], include_header_row=True)
         assert result == expected

@@ -1,10 +1,11 @@
 # czv
 
-Rust library for [czv](https://github.com/rzmk/czv). czv is a library of utility functions for CSV-related data engineering and analysis tasks.
+Rust library for [czv](https://github.com/rzmk/czv). czv is a library of CSV-related operations for data engineering and analysis tasks.
+
+-   For a WebAssembly (JavaScript, TypeScript) library see [czv-wasm](https://github.com/rzmk/czv/tree/main/czv-wasm).
+-   For a Python library see [czv-python](https://github.com/rzmk/czv/tree/main/czv-python).
 
 ## Usage
-
-You must have [Rust](https://www.rust-lang.org/tools/install) and Cargo installed (Cargo may be additionally installed when you install Rust with `rustup`).
 
 To install `czv`, run:
 
@@ -18,10 +19,12 @@ Let's say we want to print the total number of rows in a 4x3 CSV file `fruits.cs
 use czv::{count::RowCount, Result};
 
 fn main() -> Result<()> {
-    let data = r#"fruits,price
+    let data = "\
+fruits,price
 apple,2.50
 banana,3.00
-strawberry,1.50"#;
+strawberry,1.50
+";
     let output = RowCount::new()
         .file_data(data)
         .include_header_row(true)
@@ -54,3 +57,20 @@ cargo bench
 ```
 
 For benchmarks we use [criterion.rs](https://github.com/bheisler/criterion.rs).
+
+## License
+
+Licensed under either of
+
+-   Apache License, Version 2.0
+    ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+-   MIT license
+    ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.
+
+## Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.

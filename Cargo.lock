@@ -223,6 +223,7 @@ dependencies = [
  "anyhow",
  "criterion",
  "csv",
+ "thiserror",
  "typed-builder",
 ]
 
@@ -232,6 +233,7 @@ version = "0.0.0"
 dependencies = [
  "anyhow",
  "csv",
+ "czv",
  "pyo3",
  "thiserror",
 ]

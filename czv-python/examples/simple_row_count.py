@@ -5,6 +5,6 @@ apple,2.50
 banana,3.00
 strawberry,1.50"""
 
-output = czv.row_count(data, False)
+output = czv.row_count(file_data=data, include_header_row=True)
 
-print(output)
+print(output) # 4

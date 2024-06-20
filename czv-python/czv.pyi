@@ -14,12 +14,7 @@ pip install czv
 ```python
 from czv import row_count
 
-data = \"""fruits,price
-apple,2.50
-banana,3.00
-strawberry,1.50\"""
-
-output = row_count(data, False)
+output = row_count(file_path="fruits.csv")
 
 print(output)
 ```
@@ -27,20 +22,23 @@ print(output)
 """
 
 from typing import Optional
+from pathlib import Path
 
-def row_count(file_data: str, include_header_row: Optional[bool]) -> int:
+def row_count(file_path: Optional[Path], file_data: Optional[str], include_header_row: Optional[bool]) -> int:
     """Returns a count of the total number of rows.
     
     ## Arguments
      
+    * `file_path` - CSV file path.
     * `file_data` - CSV file data.
     * `include_header_row` - Specify whether to include the header row (first row) in the row count. Default is false.
     """
 
-def column_count(file_data: str) -> int:
+def column_count(file_path: Optional[Path], file_data: Optional[str]) -> int:
     """Returns a count of the total number of columns (fields).
     
     ## Arguments
     
+    * `file_path` - CSV file path.
     * `file_data` - CSV file data.
     """

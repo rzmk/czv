@@ -1,24 +1,26 @@
 # czv-python
 
-Python library for [czv](https://github.com/rzmk/czv). czv is a library of utility functions for CSV-related data engineering and analysis tasks.
+Python library for [czv](https://github.com/rzmk/czv). czv is a library of CSV-related operations for data engineering and analysis tasks.
+
+-   For a Rust library see [czv](https://github.com/rzmk/czv/tree/main/czv).
+-   For a WebAssembly (JavaScript, TypeScript) library see [czv-wasm](https://github.com/rzmk/czv/tree/main/czv-wasm).
 
 ## Installation and example
+
+To install `czv`, run:
 
 ```bash
 pip install czv
 ```
 
+Let's say we want to print the total number of rows in a 4x3 CSV file `fruits.csv` including the header row:
+
 ```python
 import czv
 
-data = """fruits,price
-apple,2.50
-banana,3.00
-strawberry,1.50"""
+output = czv.row_count(file_path="fruits.csv", include_header_row=True)
 
-output = czv.row_count(data, False)
-
-print(output)
+print(output) # 4
 ```
 
 ## Development
