@@ -17,7 +17,7 @@ bun install czv
 
 Or use `npm`, `pnpm`, or `yarn` instead of `bun`.
 
-```js
+```ts
 import init, * as czv from "czv";
 // Must run `await init()` or `initSync()` first for web use
 await init();
@@ -27,7 +27,7 @@ apple,2.50
 banana,3.00
 strawberry,1.50`;
 
-const output = czv.rowCount({
+const output: number = czv.rowCount({
     file_data: data,
     include_header_row: true,
 });
