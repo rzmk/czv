@@ -24,13 +24,13 @@
 //! console.log(output);
 //! ```
 //!
-//! For a full website example see the example's source code here: https://www.npmjs.com/package/czv) <https://github.com/rzmk/czv/tree/main/czv-wasm/examples/web-demo>
+//! For a full website example see the example's source code here: <https://github.com/rzmk/czv/tree/main/czv-wasm/examples/web-demo>
 //!
 //! # Links
 //!
 //! - czv GitHub repository: <https://github.com/rzmk/czv>
 //! - Rust: [crates.io/crates/czv](https://crates.io/crates/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv))
-//! - WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv](https://www.npmjs.com/package/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
+//! - WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv-wasm](https://www.npmjs.com/package/czv-wasm) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
 //! - Python: [pypi.org/project/czv](https://pypi.org/project/czv/) ([source code](https://github.com/rzmk/czv/tree/main/czv-python))
 
 #![allow(
