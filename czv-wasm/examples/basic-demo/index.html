@@ -40,30 +40,7 @@
             </tr>
         </tbody>
     </table>
-    <script type="module">
-        const input = document.getElementById("upload")
-        const progress = document.getElementById("progress")
-
-        import init, * as czv from "../../pkg/czv.js";
-        // Must run `await init()` or `initSync()` first for web use
-        await init();
-
-        const fileReader = new FileReader()
-
-        fileReader.onloadstart = () => {
-            progress.style.display = "block";
-        }
-
-        fileReader.onloadend = () => {
-            document.getElementById("column-count").innerText = czv.columnCount(fileReader.result)
-            document.getElementById("row-count").innerText = czv.rowCount(fileReader.result)
-            progress.style.display = "none";
-        }
-
-        input.addEventListener("change", () => {
-            fileReader.readAsText(input.files[0])
-        })
-    </script>
+    <script src="script.js" type="module"></script>
 </body>
 
 </html>

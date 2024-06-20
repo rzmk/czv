@@ -1,3 +1,45 @@
+//! # czv
+//!
+//! WASM library for [czv](https://github.com/rzmk/czv). CSV operations library for data engineering/analysis tasks.
+//!
+//! # Example
+//!
+//! Let's say we want to print the total number of non-header rows in our data:
+//!
+//! ```js
+//! import init, * as czv from "czv";
+//! // Must run `await init()` or `initSync()` first for web use
+//! await init();
+//!
+//! const data = `fruits,price
+//! apple,2.50
+//! banana,3.00
+//! strawberry,1.50`;
+//!
+//! const output = czv.rowCount({
+//!     file_data: data,
+//!     include_header_row: true,
+//! });
+//!
+//! console.log(output);
+//! ```
+//!
+//! For a full website example see the example's source code here: https://www.npmjs.com/package/czv) <https://github.com/rzmk/czv/tree/main/czv-wasm/examples/basic-demo>
+//!
+//! # Links
+//!
+//! - czv GitHub repository: <https://github.com/rzmk/czv>
+//! - Rust: [crates.io/crates/czv](https://crates.io/crates/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv))
+//! - WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv](https://www.npmjs.com/package/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
+//! - Python: [pypi.org/project/czv](https://pypi.org/project/czv/) ([source code](https://github.com/rzmk/czv/tree/main/czv-python))
+
+#![allow(
+    // https://github.com/madonoharu/tsify/issues/42
+    non_snake_case,
+    // https://github.com/rustwasm/wasm-bindgen/issues/3945
+    clippy::empty_docs
+)]
+
 use wasm_bindgen::JsValue;
 
 // Error-handling helpers
@@ -11,9 +53,15 @@ impl From<csv::Error> for CzvError {
     }
 }
 
-impl Into<JsValue> for CzvError {
-    fn into(self) -> JsValue {
-        JsValue::from_str(self.to_string().as_str())
+impl From<serde_wasm_bindgen::Error> for CzvError {
+    fn from(value: serde_wasm_bindgen::Error) -> Self {
+        value.into()
+    }
+}
+
+impl From<CzvError> for JsValue {
+    fn from(val: CzvError) -> Self {
+        JsValue::from_str(val.to_string().as_str())
     }
 }
 

@@ -42,12 +42,16 @@ pub fn row_count(
 
 #[derive(TypedBuilder)]
 #[builder(doc, builder_method(name=new, doc="Returns a `RowCountBuilder` to customize row count options by running other methods before getting the row count with the `execute` method."), build_method(vis="", name=__build))]
+/// Returns a count of the total number of rows.
+///
 /// The entry point for setting up a [`czv::count::RowCountBuilder`](crate::count::RowCountBuilder) by running [`RowCount::new()`](crate::count::RowCount::new).
 ///
-/// For example:
+/// # Example
+///
+/// Let's say we want to print the total number of non-header rows in our data:
 ///
 /// ```rust
-/// use czv::{count::RowCount, Result};
+/// use czv::{RowCount, Result};
 ///
 /// fn main() -> Result<()> {
 ///     let data = "\
@@ -113,6 +117,26 @@ impl<
 ///
 /// See [`czv::count::ColumnCount`](crate::count::ColumnCount) for a builder version (recommended) of this function.
 ///
+/// # Example
+///
+/// Let's say we want to print the total number of columns in our data:
+///
+/// ```rust
+/// use czv::{ColumnCount, Result};
+///
+/// fn main() -> Result<()> {
+///     let data = "\
+/// fruits,price
+/// apple,2.50
+/// banana,3.00
+/// strawberry,1.50
+/// ";
+///     let output = ColumnCount::new().file_data(data).execute()?;
+///     println!("{output}"); // 2
+///     Ok(())
+/// }
+/// ```
+///
 /// ## Arguments
 ///
 /// * `file_path` - CSV file path (alternative to `file_data`).
@@ -122,7 +146,7 @@ pub fn column_count(file_path: Option<PathBuf>, file_data: Option<String>) -> Re
 
     // file_path
     if let Some(file_path) = file_path {
-        return Ok(rdr.from_path(file_path)?.headers()?.len());
+        Ok(rdr.from_path(file_path)?.headers()?.len())
     }
     // file_data
     else if let Some(file_data) = file_data {
@@ -136,6 +160,8 @@ pub fn column_count(file_path: Option<PathBuf>, file_data: Option<String>) -> Re
 
 #[derive(TypedBuilder)]
 #[builder(doc, builder_method(name=new, doc="Returns a `ColumnCountBuilder` to customize column count options by running other methods before getting the column count with the `execute` method."), build_method(vis="", name=__build))]
+/// Returns a count of the total number of columns (fields).
+///
 /// The entry point for setting up a [`czv::count::ColumnCountBuilder`](crate::count::ColumnCountBuilder) by running [`ColumnCount::new()`](crate::count::ColumnCount::new).
 ///
 /// For example:

@@ -2,8 +2,12 @@
 
 Rust library for [czv](https://github.com/rzmk/czv). czv is a library of CSV-related operations for data engineering and analysis tasks.
 
--   For a WebAssembly (JavaScript, TypeScript) library see [czv-wasm](https://github.com/rzmk/czv/tree/main/czv-wasm).
--   For a Python library see [czv-python](https://github.com/rzmk/czv/tree/main/czv-python).
+## Links
+
+-   czv GitHub repository: <https://github.com/rzmk/czv>
+-   Rust: [crates.io/crates/czv](https://crates.io/crates/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv))
+-   WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv](https://www.npmjs.com/package/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
+-   Python: [pypi.org/project/czv](https://pypi.org/project/czv/) ([source code](https://github.com/rzmk/czv/tree/main/czv-python))
 
 ## Usage
 
@@ -16,7 +20,7 @@ cargo install czv
 Let's say we want to print the total number of rows in a 4x3 CSV file `fruits.csv` including the header row:
 
 ```rust
-use czv::{count::RowCount, Result};
+use czv::{RowCount, Result};
 
 fn main() -> Result<()> {
     let data = "\

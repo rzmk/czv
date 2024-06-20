@@ -2,7 +2,16 @@
 
 czv is CSV content manipulation/analysis libraries with support for Rust, Python, and WebAssembly (JavaScript and TypeScript).
 
+## Links
+
+-   czv GitHub repository: <https://github.com/rzmk/czv>
+-   Rust: [crates.io/crates/czv](https://crates.io/crates/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv))
+-   WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv](https://www.npmjs.com/package/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
+-   Python: [pypi.org/project/czv](https://pypi.org/project/czv/) ([source code](https://github.com/rzmk/czv/tree/main/czv-python))
+
 ## Installation and examples
+
+In the following examples we'll get the total number of rows in the CSV data including the header row.
 
 ### Rust
 
@@ -11,10 +20,7 @@ cargo install czv
 ```
 
 ```rust
-use czv::{
-    count::RowCount,
-    Result
-};
+use czv::{RowCount, Result};
 
 fn main() -> Result<()> {
     let data = "\
@@ -25,8 +31,9 @@ strawberry,1.50
 ";
     let output = RowCount::new()
         .file_data(data)
+        .include_header_row(true)
         .execute()?;
-    println!("{output}"); // 3
+    println!("{output}"); // 4
     Ok(())
 }
 ```
@@ -49,7 +56,11 @@ apple,2.50
 banana,3.00
 strawberry,1.50`;
 
-const output = czv.rowCount(data);
+const output = czv.rowCount({
+    file_data: data,
+    include_header_row: true,
+});
+
 console.log(output);
 ```
 

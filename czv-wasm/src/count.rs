@@ -1,32 +1,50 @@
 use crate::Result;
 use csv::ReaderBuilder;
+use serde::{Deserialize, Serialize};
+use tsify_next::Tsify;
 use wasm_bindgen::prelude::*;
 
+/// Options for `rowCount`.
+#[derive(Tsify, Serialize, Deserialize)]
+#[tsify(into_wasm_abi, from_wasm_abi)]
+pub struct RowCountOptions {
+    /// CSV file data.
+    pub file_data: String,
+
+    #[tsify(optional)]
+    /// Specify whether to include the header row (first row) in the row count.
+    /// Default is false.
+    pub include_header_row: Option<bool>,
+}
+
 /// Returns a count of the total number of rows.
-///
-/// @param {string} `file_data` CSV file data.
-/// @param {boolean | undefined} `include_header_row` Specify whether to include the header row (first row) in the row count. Default is false.
-/// @returns {number}
 #[wasm_bindgen(skip_jsdoc, js_name = rowCount)]
-pub fn row_count(file_data: String, include_header_row: Option<bool>) -> Result<usize> {
+pub fn row_count(options: RowCountOptions) -> Result<usize> {
     let mut rdr = ReaderBuilder::new();
 
-    rdr.has_headers(!include_header_row.unwrap_or(false));
-    return Ok(rdr.from_reader(file_data.as_bytes()).records().count());
+    rdr.has_headers(!options.include_header_row.unwrap_or(false));
+
+    Ok(rdr
+        .from_reader(options.file_data.as_bytes())
+        .records()
+        .count())
+}
+
+/// Options for `columnCount`.
+#[derive(Tsify, Serialize, Deserialize)]
+#[tsify(into_wasm_abi, from_wasm_abi)]
+pub struct ColumnCountOptions {
+    /// CSV file data.
+    pub file_data: String,
 }
 
 /// Returns a count of the total number of columns (fields).
-///
-/// ## Arguments
-///
-/// @param {string} `file_data` CSV file data.
 #[wasm_bindgen(skip_jsdoc, js_name = columnCount)]
-pub fn column_count(file_data: Option<String>) -> Result<usize> {
+pub fn column_count(options: ColumnCountOptions) -> Result<usize> {
     let rdr = ReaderBuilder::new();
 
-    if let Some(file_data) = file_data {
-        return Ok(rdr.from_reader(file_data.as_bytes()).headers()?.len());
-    } else {
-        bail!("Could not determine a file path or file data for column_count_builder.");
-    }
+    Ok(rdr
+        .from_reader(options.file_data.as_bytes())
+        .headers()?
+        .len())
 }

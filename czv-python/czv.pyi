@@ -1,7 +1,7 @@
 """
 # czv
 
-Python library for [czv](https://github.com/rzmk/czv). CSV content manipulation and analysis.
+Python library for [czv](https://github.com/rzmk/czv). CSV operations library for data engineering/analysis tasks.
 
 ## Install
 
@@ -18,6 +18,13 @@ output = row_count(file_path="fruits.csv")
 
 print(output)
 ```
+
+## Links
+
+- czv GitHub repository: <https://github.com/rzmk/czv>
+- Rust: [crates.io/crates/czv](https://crates.io/crates/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv))
+- WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv](https://www.npmjs.com/package/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
+- Python: [pypi.org/project/czv](https://pypi.org/project/czv/) ([source code](https://github.com/rzmk/czv/tree/main/czv-python))
 
 """
 

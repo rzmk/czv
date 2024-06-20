@@ -2,8 +2,12 @@
 
 Python library for [czv](https://github.com/rzmk/czv). czv is a library of CSV-related operations for data engineering and analysis tasks.
 
--   For a Rust library see [czv](https://github.com/rzmk/czv/tree/main/czv).
--   For a WebAssembly (JavaScript, TypeScript) library see [czv-wasm](https://github.com/rzmk/czv/tree/main/czv-wasm).
+## Links
+
+-   czv GitHub repository: <https://github.com/rzmk/czv>
+-   Rust: [crates.io/crates/czv](https://crates.io/crates/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv))
+-   WebAssembly (JavaScript/TypeScript): [npmjs.com/package/czv](https://www.npmjs.com/package/czv) ([source code](https://github.com/rzmk/czv/tree/main/czv-wasm))
+-   Python: [pypi.org/project/czv](https://pypi.org/project/czv/) ([source code](https://github.com/rzmk/czv/tree/main/czv-python))
 
 ## Installation and example
 
