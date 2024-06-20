@@ -70,6 +70,8 @@ console.log(output);
 pip install czv
 ```
 
+Or use [`uv pip`](https://github.com/astral-sh/uv) instead of `pip`.
+
 ```python
 import czv
 

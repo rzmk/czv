@@ -17,6 +17,8 @@ To install `czv`, run:
 pip install czv
 ```
 
+Or use [`uv pip`](https://github.com/astral-sh/uv) instead of `pip`.
+
 Let's say we want to print the total number of rows in a 4x3 CSV file `fruits.csv` including the header row:
 
 ```python
