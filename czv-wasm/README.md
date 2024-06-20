@@ -17,6 +17,8 @@ bun install czv
 
 Or use `npm`, `pnpm`, or `yarn` instead of `bun`.
 
+The following example is written in TypeScript:
+
 ```ts
 import init, * as czv from "czv";
 // Must run `await init()` or `initSync()` first for web use
