@@ -1,6 +1,6 @@
 # czv
 
-czv is CSV content manipulation/analysis libraries with support for Rust, Python, and WebAssembly (JavaScript and TypeScript).
+czv includes libraries for Rust, Python, and WebAssembly (JavaScript and TypeScript) providing CSV-related operations for data engineering and analysis tasks.
 
 ## Links
 
