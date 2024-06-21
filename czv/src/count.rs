@@ -207,6 +207,7 @@ impl<
         __file_path: typed_builder::Optional<Option<PathBuf>>,
     > ColumnCountBuilder<(__file_path, __file_data)>
 {
+    /// Returns the column count.
     pub fn execute(self) -> Result<usize> {
         let builder = self.__build();
         column_count(builder.file_path, builder.file_data)
