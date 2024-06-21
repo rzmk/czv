@@ -63,6 +63,8 @@ const output: number = czv.rowCount({
 console.log(output);
 ```
 
+You can view source code for an example website using `czv-wasm` at https://github.com/rzmk/czv/tree/main/czv-wasm/examples/web-demo.
+
 ### Python
 
 ```bash
@@ -86,10 +88,10 @@ print(output) # 4
 
 ## Available operations
 
-| czv (Rust)                               | czv-wasm (JS/TS)                       | czv-python                                      | Summary                   |
-| ---------------------------------------- | -------------------------------------- | ----------------------------------------------- | ------------------------- |
-| [`count::RowCount`](czv/src/count.rs)    | [`rowCount`](czv-wasm/src/count.rs)    | [`count.row_count`](czv-python/src/count.rs)    | Get the number of rows    |
-| [`count::ColumnCount`](czv/src/count.rs) | [`columnCount`](czv-wasm/src/count.rs) | [`count.column_count`](czv-python/src/count.rs) | Get the number of columns |
+| czv (Rust)                        | czv-wasm (JS/TS)                       | czv-python                                | Summary                   |
+| --------------------------------- | -------------------------------------- | ----------------------------------------- | ------------------------- |
+| [`RowCount`](czv/src/count.rs)    | [`rowCount`](czv-wasm/src/count.rs)    | [`row_count`](czv-python/src/count.rs)    | Get the number of rows    |
+| [`ColumnCount`](czv/src/count.rs) | [`columnCount`](czv-wasm/src/count.rs) | [`column_count`](czv-python/src/count.rs) | Get the number of columns |
 
 ## Development
 
