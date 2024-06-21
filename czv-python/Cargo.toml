@@ -1,6 +1,6 @@
 [package]
 name = "czv-python"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["Mueez Khan"]
 description = "Python library for performing CSV-related functions for data engineering and analysis."
 repository = "https://github.com/rzmk/czv"

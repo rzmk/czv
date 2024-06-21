@@ -218,7 +218,7 @@ dependencies = [
 
 [[package]]
 name = "czv"
-version = "0.0.0"
+version = "0.0.1"
 dependencies = [
  "anyhow",
  "criterion",
@@ -229,7 +229,7 @@ dependencies = [
 
 [[package]]
 name = "czv-python"
-version = "0.0.0"
+version = "0.0.1"
 dependencies = [
  "anyhow",
  "csv",
@@ -240,7 +240,7 @@ dependencies = [
 
 [[package]]
 name = "czv-wasm"
-version = "0.0.0"
+version = "0.0.1"
 dependencies = [
  "anyhow",
  "csv",

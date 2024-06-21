@@ -1,6 +1,6 @@
 [package]
 name = "czv"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["Mueez Khan"]
 description = "Rust library for performing CSV-related operations for data engineering and analysis."
 repository = "https://github.com/rzmk/czv"
