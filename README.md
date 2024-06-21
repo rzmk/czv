@@ -29,8 +29,11 @@ apple,2.50
 banana,3.00
 strawberry,1.50
 ";
-    let output: usize = RowCount::new().file_data(data).execute()?;
-    println!("{output}"); // 3
+    let output: usize = RowCount::new()
+        .file_data(data)
+        .include_header_row(true)
+        .execute()?;
+    println!("{output}"); // 4
     Ok(())
 }
 ```
