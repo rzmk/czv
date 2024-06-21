@@ -211,7 +211,7 @@ dependencies = [
 
 [[package]]
 name = "czv"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "anyhow",
  "criterion",
