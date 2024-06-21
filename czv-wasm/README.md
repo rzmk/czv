@@ -20,7 +20,7 @@ Or use `npm`, `pnpm`, or `yarn` instead of `bun`.
 The following example is written in TypeScript:
 
 ```ts
-import init, * as czv from "czv";
+import init, * as czv from "czv-wasm";
 // Must run `await init()` or `initSync()` first for web use
 await init();
 
@@ -48,7 +48,7 @@ cargo install wasm-pack
 ### Build WASM for web
 
 ```bash
-wasm-pack build --release --target web --out-name czv
+wasm-pack build --release --target web
 ```
 
 **Note**: Currently you must modify the `pkg/package.json` by replacing the name from `czv-wasm` to `czv`.

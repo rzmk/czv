@@ -7,7 +7,7 @@
 //! Let's say we want to print the total number of non-header rows in our data:
 //!
 //! ```js
-//! import init, * as czv from "czv";
+//! import init, * as czv from "czv-wasm";
 //! // Must run `await init()` or `initSync()` first for web use
 //! await init();
 //!

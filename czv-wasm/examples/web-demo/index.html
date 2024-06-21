@@ -1,46 +1,16 @@
-<!DOCTYPE html>
-<html id="html" lang="en">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pico.min.css" />
-    <title>czv demo</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>czv - WebAssembly library demo (using Vite & React)</title>
 </head>
 
-<body style="padding:1rem">
-    <div style="display: flex; gap: 2rem; justify-content: space-between;">
-        <h1>czv playground</h1>
-        <button class="outline secondary" style="height: fit-content; padding: 0.25rem;" onclick="const html = document.getElementById('html');
-            if (html.getAttribute('data-theme') === 'light')
-                html.setAttribute('data-theme', 'dark')
-            else
-                html.setAttribute('data-theme', 'light')">Switch
-            page theme</button>
-    </div>
-    <p>Import a CSV file and get statistical data from running <a href="https://github.com/rzmk/czv">czv</a> in your
-        browser using WASM.</p>
-    <input type="file" id="upload" accept=".csv" class="hidden" />
-    <label for="upload" style="display: none;" id="progress">Loading...</label>
-    <table style="width: 100%;" class="striped">
-        <thead>
-            <tr>
-                <th style="width: 10rem">Output type</th>
-                <th>Output</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Row count</td>
-                <td id="row-count"></td>
-            </tr>
-            <tr>
-                <td>Column count</td>
-                <td id="column-count"></td>
-            </tr>
-        </tbody>
-    </table>
-    <script src="script.js" type="module"></script>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>

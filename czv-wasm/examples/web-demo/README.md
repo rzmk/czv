@@ -1,7 +1,25 @@
-# czv for WebAssembly web demo
+# czv - web-demo
 
-View `index.html` in a web browser and import a CSV file.
+Demo website for the [czv](https://github.com/rzmk/czv) WebAssembly library built with Vite & React.
+
+![Preview image](preview.png)
 
 ## Development
 
-If you want to modify the TypeScript code then after you save your modifications you must run `tsc script.ts --module es2022 --target es2022` to generate a compatible `script.js` file.
+1. Install the packages:
+
+```bash
+bun install
+```
+
+2. Build the site:
+
+```bash
+bun run build
+```
+
+3. Serve the site:
+
+```bash
+bun preview
+```
