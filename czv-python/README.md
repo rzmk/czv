@@ -56,3 +56,11 @@ maturin develop --uv --release
 ```bash
 pytest
 ```
+
+### Publishing
+
+To publish to pypi.org run:
+
+```bash
+maturin publish
+```
