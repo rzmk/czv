@@ -41,7 +41,7 @@
 pub mod count;
 #[doc(inline)]
 pub use count::{ColumnCount, RowCount};
-/// Extract a section of rows.
+// Extract a section of rows.
 // pub mod slice;
 // #[doc(inline)]
 // pub use slice::Slice;
