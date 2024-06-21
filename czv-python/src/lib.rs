@@ -8,25 +8,25 @@ pub struct CzvError(anyhow::Error);
 
 impl From<OGError> for CzvError {
     fn from(value: OGError) -> Self {
-        value.into()
+        Self(anyhow::anyhow!(value))
     }
 }
 
 impl From<pyo3::PyErr> for CzvError {
     fn from(value: pyo3::PyErr) -> Self {
-        value.into()
+        Self(anyhow::anyhow!(value))
     }
 }
 
 impl From<csv::Error> for CzvError {
     fn from(value: csv::Error) -> Self {
-        value.into()
+        Self(anyhow::anyhow!(value))
     }
 }
 
 impl From<CzvError> for pyo3::PyErr {
     fn from(value: CzvError) -> Self {
-        value.into()
+        anyhow::anyhow!(value).into()
     }
 }
 

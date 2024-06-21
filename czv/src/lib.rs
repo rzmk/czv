@@ -55,13 +55,13 @@ pub struct CzvError(pub anyhow::Error);
 
 impl From<anyhow::Error> for CzvError {
     fn from(value: anyhow::Error) -> Self {
-        value.into()
+        Self(value)
     }
 }
 
 impl From<csv::Error> for CzvError {
     fn from(value: csv::Error) -> Self {
-        value.into()
+        Self(anyhow::anyhow!(value))
     }
 }
 

@@ -13,5 +13,5 @@ crate-type = ["cdylib", "rlib"]
 anyhow = "1.0.86"
 csv = "1.3.0"
 czv = { path = "../czv" }
-pyo3 = { version = "0.21.2", features = ["extension-module"] }
+pyo3 = { version = "0.21.2", features = ["anyhow", "extension-module"] }
 thiserror = "1.0.61"

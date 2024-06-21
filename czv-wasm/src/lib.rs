@@ -44,19 +44,13 @@ use wasm_bindgen::JsValue;
 
 // Error-handling helpers
 #[derive(thiserror::Error, Debug)]
-#[error("{0}")]
-pub struct CzvError(anyhow::Error);
-
-impl From<csv::Error> for CzvError {
-    fn from(value: csv::Error) -> Self {
-        value.into()
-    }
-}
-
-impl From<serde_wasm_bindgen::Error> for CzvError {
-    fn from(value: serde_wasm_bindgen::Error) -> Self {
-        value.into()
-    }
+pub enum CzvError {
+    #[error("{0}")]
+    GeneralError(#[from] anyhow::Error),
+    #[error("{0}")]
+    CsvError(#[from] csv::Error),
+    #[error("{0}")]
+    SerdeWasmBindgenError(#[from] serde_wasm_bindgen::Error),
 }
 
 impl From<CzvError> for JsValue {
