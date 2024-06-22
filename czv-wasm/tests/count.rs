@@ -1,5 +1,5 @@
 use czv_wasm;
-use czv_wasm::count::RowCountOptions;
+use czv_wasm::count::{ColumnCountOptions, RowCountOptions};
 use czv_wasm::Result;
 use wasm_bindgen_test::*;
 wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
@@ -33,5 +33,20 @@ strawberry,3.00"
     };
     let result = czv_wasm::count::row_count(options)?;
     assert_eq!(result, 4);
+    Ok(())
+}
+
+#[test]
+#[wasm_bindgen_test]
+fn column_count() -> Result<()> {
+    let options = ColumnCountOptions {
+        file_data: "fruit,price
+apple,2.00
+banana,1.50
+strawberry,3.00"
+            .to_string(),
+    };
+    let result = czv_wasm::count::column_count(options)?;
+    assert_eq!(result, 2);
     Ok(())
 }
